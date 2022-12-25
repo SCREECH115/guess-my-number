@@ -61,6 +61,7 @@ const win = () => {
   isWinner = true;
   reply.textContent = "Your guess is correct! Congrats!";
   highscore = score;
+  highscoreDisplay.textContent = `Highscore: ${highscore}`;
 
   jsConfetti.addConfetti();
 };
