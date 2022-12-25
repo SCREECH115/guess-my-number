@@ -6,6 +6,7 @@ const reply = document.querySelector(".reply");
 const newGameBtn = document.getElementById("newGame");
 let scoreDisplay = document.getElementById("score");
 let highscoreDisplay = document.getElementById("highscore");
+let prevNumber = 0;
 
 score = 20;
 highscore = 20;
@@ -15,22 +16,28 @@ highscoreDisplay.textContent = `Highscore: ${highscore}`;
 
 btn.addEventListener("click", function () {
   const userNumber = document.querySelector(".guess").value;
+  console.log(userNumber, prevNumber);
   console.log(number);
 
-  if (userNumber === "") {
-    reply.textContent = "Please enter a value!";
+  if (prevNumber === userNumber) {
+    reply.textContent = "Please enter a different value!";
   } else {
-    if (userNumber > number || userNumber < number) {
-      userNumber > number
-        ? (reply.textContent = "Your number is too high!")
-        : (reply.textContent = "Your number is too low!");
-      score--;
-      score < highscore ? highscore-- : highscore;
-      console.log(`Score: ${score}`, `Highscore: ${highscore}`);
-      scoreDisplay.textContent = `Score: ${score}`;
-      highscoreDisplay.textContent = `Highscore: ${highscore}`;
-    } else if (userNumber == number) {
-      win();
+    if (userNumber === "") {
+      reply.textContent = "Please enter a value!";
+    } else {
+      if (userNumber > number || userNumber < number) {
+        userNumber > number
+          ? (reply.textContent = "Your number is too high!")
+          : (reply.textContent = "Your number is too low!");
+        prevNumber = userNumber;
+        score--;
+        score < highscore ? highscore-- : highscore;
+        console.log(`Score: ${score}`, `Highscore: ${highscore}`);
+        scoreDisplay.textContent = `Score: ${score}`;
+        highscoreDisplay.textContent = `Highscore: ${highscore}`;
+      } else if (userNumber == number) {
+        win();
+      }
     }
   }
 
