@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess My Number!</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="title">
+      <h1>Guess My Number!</h1>
+    </div>
+    <div class="description">
+      <p>Try to guess number between 1 and 100!</p>
+    </div>
+    <div class="scores">
+      <div class="score" id="score">Score: </div>
+      <div class="highscore" id="highscore">Highscore: </div>
+    </div>
+    <div class="game">
+      <input type="number" class="guess" id="userNumber" min="1" max="100">
+      <button value="submit" class="submit-button" id="submit">Guess</button>
+      <button value="submit" class="newgame-button" id="newGame">New Game</button>
+    </div>
+    <div class="reply"></div>
+      </div>
+    </div>
+  </body>
+</html>
